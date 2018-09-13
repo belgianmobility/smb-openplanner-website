@@ -1,3 +1,6 @@
 _site
 .sass-cache
 .jekyll-metadata
+
+# Do not lock dependencies to stay in sync with Github Pages
+Gemfile.lock 
