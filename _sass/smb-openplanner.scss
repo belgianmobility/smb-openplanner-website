@@ -1,42 +1,81 @@
- /*!
- * Bootstrap v4.1.3 (https://getbootstrap.com/)
- * Copyright 2011-2018 The Bootstrap Authors
- * Copyright 2011-2018 Twitter, Inc.
- * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
- */
+$grid-gutter-width: 0px;
 
-@import "bootstrap/functions";
-@import "bootstrap/variables";
-@import "bootstrap/mixins";
-@import "bootstrap/root";
-@import "bootstrap/reboot";
-// @import "bootstrap/type";
-// @import "bootstrap/images";
-// @import "bootstrap/code";
-@import "bootstrap/grid";
-// @import "bootstrap/tables";
-// @import "bootstrap/forms";
-// @import "bootstrap/buttons";
-// @import "bootstrap/transitions";
-// @import "bootstrap/dropdown";
-// @import "bootstrap/button-group";
-// @import "bootstrap/input-group";
-// @import "bootstrap/custom-forms";
-@import "bootstrap/nav";
-@import "bootstrap/navbar";
-// @import "bootstrap/card";
-// @import "bootstrap/breadcrumb";
-// @import "bootstrap/pagination";
-// @import "bootstrap/badge";
-// @import "bootstrap/jumbotron";
-// @import "bootstrap/alert";
-// @import "bootstrap/progress";
-// @import "bootstrap/media";
-// @import "bootstrap/list-group";
-// @import "bootstrap/close";
-// @import "bootstrap/modal";
-// @import "bootstrap/tooltip";
-// @import "bootstrap/popover";
-// @import "bootstrap/carousel";
-// @import "bootstrap/utilities";
-// @import "bootstrap/print";
+@import "includes";
+
+header {
+  height:50vh;
+  padding-top:60px;
+  padding-bottom:80px;
+}
+
+.site-logo {
+  width:10%;
+}
+
+.menu-row {
+  margin-bottom:60px;
+}
+
+.nav-link {
+  margin-left:60px;
+}
+
+.cover-picture {
+  height:50vh;
+  overflow:hidden;
+  
+  img {
+    width:100%;
+  }
+}
+
+.circle {
+  background-color: white;
+  height: 56px;
+  width: 56px;
+  border-radius: 50%;
+  display: inline-block;
+  mix-blend-mode: difference;
+  position: absolute;
+  left: -28px;
+  text-align: center;
+  top: -20px;
+}
+
+.about-div {
+  margin-top:160px;
+}
+
+h2 {
+  margin-bottom:60px;
+  font-weight: 500;
+  font-size: 40px;
+  letter-spacing: -0.00625em;
+  line-height: 1.2;
+}
+
+h3 {
+  font-weight: 400;
+  font-size: 48px;
+  letter-spacing: -0.00625em;
+  line-height: 1.2;
+}
+
+p {
+  font-size: 18px;
+  letter-spacing: -0.0111em;
+  line-height: 1.8;
+}
+
+p.bigger {
+  font-size: 24px;
+  letter-spacing: -0.0084em;
+  line-height: 1.85;
+}
+
+.partner-logo {
+  height:30px;
+  text-indent: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+}

@@ -1,23 +1,113 @@
 ---
 layout: default
+title: Publishing better open transport data, enabling an ecosystem of open source route planners.
 ---
+<header>
+  <div class="container-fluid">
+    <div class="row menu-row">
+      <div class="col-sm-10 offset-sm-1">
+        <nav class="navbar navbar-expand-sm navbar-light bg-light align-right justify-content-between">
+          <a class="site-title" href="{{ site.baseurl }}/"><img class="site-logo" src="{{ site.baseurl }}/img/opt-logo-full.png" alt="{{ site.title }}"></a>
 
-<div class="home">
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+            <li class="nav-item"><a class="nav-link" href="#team">Team</a></li>
+            <li class="nav-item"><a class="nav-link" href="#developers">Developers</a></li>
+            <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+    
+    <div class="row">
+      <div class="col-sm-7 offset-sm-2">
+        <h1>{{ page.title }}</h1>
+      </div>
+    </div>
+  </div>
+</header>
 
-  <h1 class="page-heading">Posts</h1>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-11 cover-picture">
+      <img src="img/header-bg3.jpg" alt="">
+    </div>
+  </div>
+  <div class="row about-div">
+    <div class="col-sm-8 offset-sm-2">
+      <span class="circle"></span><h2 id="about">What?</h2>
+    </div>
+  </div>
+  <div class="row" style="margin-top:80px;">
+    <div class="col-sm-4 offset-sm-2">
+      <p> Intermodal route planning advice is vital when we want to convince people to opt for more sustainable ways of transport.  Countless projects have tried to create a perfect intermodal route planning experience, and all of them have been investing over and over again in integrating the same data.  When the funding from these projects disappears, also the data integration disappeared. </p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-3 offset-sm-4">
+      <p> The Open Planner Team wants to empower anyone to build any kind of route planner, without having to invest in data integration.  Your route planner should work out of the box.  Therefore, we are first and foremost working on the Open Data itself, by helping data owners publish their data. </p>
+    </div>
+    <div class="col-sm-3 offset-sm-1">
+      <p> By building open source tools that can consume these open data sources automatically, we hope to build a level playing field for Mobility as a Service players </p>
+    </div>
+  </div>
 
-  <ul class="post-list">
-    {% for post in site.posts %}
-      <li>
-        <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
+  <div class="gallery row" style="margin-top:160px;">
+    <div class="col-sm-3">
+      <img src="" alt="">
+    </div>
+    <div class="col-sm-4 offset-sm-2">
+      <img src="" alt="">
+    </div>
+    <div class="col-sm-3">
+      <img src="" alt="">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-8 offset-sm-2">
+      <span class="circle"></span><h2 id="team">Our team</h2>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-3 offset-sm-2">
+      <h3 class="partner-logo"><img src="{{ site.baseurl }}/img/opt-logo-full.png" alt="IMEC">IMEC</h3>
+      <p>Researchers from the IDLab team specialize in  Open Data interfaces. Earlier they created Linked Connections as a result from the <a href="https://phd.pietercolpaert.be">PhD of Pieter Colpaert</a>.</p>
+    </div>
+    <div class="col-sm-3 offset-sm-1">
+      <h3><img src="{{ site.baseurl }}/img/opt-logo-full.png" alt="">Anyways</h3>
+      <p>Anyways.eu is a small firm with Ben Abelshausen</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-3 offset-sm-2">
+      <h3><img src="{{ site.baseurl }}/img/opt-logo-full.png" alt="">Open Knowledge Belgium</h3>
+      <p>A not for profit building communities around Open Data. Will be organizing <a href="http://openbelgium.be">Open Belgium in February 2019</a> with the public launch event, and the <a href="http://summerofcode.be">open Summer of code 2019</a> with 12 students taking on the ideas from the public call for ideas.</p>
+    </div>
+    <div class="col-sm-3 offset-sm-1">
+      <h3><img src="{{ site.baseurl }}/img/opt-logo-full.png" alt="">nextmoov</h3>
+      <p>Thomas Hermines and his team are specialized in creating digital experiences.</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-3 offset-sm-2">
+      <h3><img src="{{ site.baseurl }}/img/opt-logo-full.png" alt="">De Lijn</h3>
+      <p>A core team of De Lijn will collaborate with researchers from IMEC.</p>
+    </div>
+  </div>                   
 
-        <h2>
-          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-        </h2>
-      </li>
-    {% endfor %}
-  </ul>
-
-  <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
-
+  <div class="row">
+    <div class="col-sm-8 offset-sm-2">
+      <span class="circle"></span><h2>Launch event - February 2019</h2>
+      <p class="bigger">A half day workshop with developers. A press release. A call for ideas. To be announced in January.  We will show you an SDK in which you can immediately start planning routes from A to B, taking into account different parameters.</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-6 offset-sm-4">
+      <span class="circle"></span><h2 id="developers">Developers</h2>
+      <p class="bigger">Can't wait to tag along? We are developing tools on GitHub and are discussing our next steps on a private Slack instance.</p>
+    </div>
+  </div>
 </div>

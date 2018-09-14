@@ -1,38 +1,19 @@
-<footer class="site-footer">
-
-  <div class="wrapper">
-
-    <h2 class="footer-heading">{{ site.title }}</h2>
-
-    <div class="footer-col-wrapper">
-      <div class="footer-col footer-col-1">
-        <ul class="contact-list">
-          <li>{{ site.title }}</li>
-          <li><a href="mailto:{{ site.email }}">{{ site.email }}</a></li>
-        </ul>
-      </div>
-
-      <div class="footer-col footer-col-2">
-        <ul class="social-media-list">
-          {% if site.github_username %}
-          <li>
-            {% include icon-github.html username=site.github_username %}
-          </li>
-          {% endif %}
-
-          {% if site.twitter_username %}
-          <li>
-            {% include icon-twitter.html username=site.twitter_username %}
-          </li>
-          {% endif %}
-        </ul>
-      </div>
-
-      <div class="footer-col footer-col-3">
-        <p>{{ site.description }}</p>
-      </div>
-    </div>
-
-  </div>
-
+<footer>
+   <div class="container-fluid">
+       <div class="row">
+           <div class="col-md-7" style="background-color: black;">
+               <div class="col-md-8 offset-md-4">
+                   <img src="img/logo-full-white.png" alt="{{ site.title }}">
+               </div>
+               <div class="col-md-8 offset-md-4">
+                   <p id="contact">Get in touch</p>
+               
+                   <p>Privacy policy</p>
+                   <p>Made whith love by </p><img src="" alt="">
+               </div>
+           </div>
+           <div class="col-md-5">
+           </div>
+       </div>
+   </div>
 </footer>
