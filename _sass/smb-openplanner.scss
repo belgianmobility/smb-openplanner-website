@@ -22,8 +22,12 @@ header .container-fluid:first-child {
     margin-left:60px;
 }
 
+@include media-breakpoint-up(sm) {
+    .cover-picture { height:50vh; }
+}
+    
 .cover-picture {
-    height:50vh;
+    height:80vh;
     overflow:hidden;
     
     img {
@@ -33,6 +37,291 @@ header .container-fluid:first-child {
 /***********/
 /* /HEADER */
 /***********/
+
+/*********/
+/* ABOUT */
+/*********/
+#about {
+    .row > div {
+        @include make-col-ready();
+        @include make-col(10);
+        @include make-col-offset(1);
+    }
+    
+    .row:nth-of-type(2) {
+        margin-top: 60px;
+    }
+
+    .row:nth-of-type(3) {
+        margin-top:(2 * 100vw / 12);
+    }
+
+    @include media-breakpoint-up(sm) {
+        .row:nth-of-type(1) > div {
+            @include make-col(8);
+            @include make-col-offset(2);
+        }
+        
+        .row:nth-of-type(2) > div {
+            @include make-col(4);
+            @include make-col-offset(2);
+        }
+        
+        .row:nth-of-type(3) {
+            margin-top:(100vw / 12);
+            
+            > div:nth-of-type(1) {
+                @include make-col(3);
+                @include make-col-offset(4);
+            }
+            
+            > div:nth-of-type(2) {
+                @include make-col(3);
+                @include make-col-offset(1);
+            }
+        }
+    }
+}
+/**********/
+/* /ABOUT */
+/**********/
+
+
+/***********/
+/* GALLERY */
+/***********/
+#gallery {
+    img {
+        object-fit:cover;
+        object-position:center center;
+    }
+
+    > .row {
+        > div {
+            @include make-col-ready();
+            overflow:hidden;
+        }
+        
+        > div:nth-of-type(1) {
+            @include make-col(3);
+            height:90vh;
+        }
+
+        > div:nth-of-type(2) {
+            height:90vh;
+            @include make-col(3);        
+            display:flex;
+            flex-direction:column-reverse;
+
+            .sideways {
+                align-self: flex-end;
+                margin: 0 auto (100vw / 12) auto;
+                writing-mode: sideways-lr;
+            }
+            
+            .black-line {
+                align-self: flex-end;
+                margin: 0 auto 60px auto;
+                background-color:black;
+                height:(6 * 100vw / 12);
+                width:2px;
+            }
+        }
+        
+        > div:nth-of-type(3) {
+            @include make-col(6);
+            height:90vh;
+            padding-top:20vh;
+        }
+        
+        > div:nth-of-type(4) {
+            display:none;       
+        }
+    }
+}
+
+@include media-breakpoint-up(sm) {
+    #gallery > .row {
+        > div:nth-of-type(2) {
+            @include make-col(2);
+            
+            .sideways {
+                margin: 0 auto (100vw / 12) auto;
+            }
+            
+            .black-line {
+                height:(2 * 100vw / 12);
+            }
+        }
+
+        > div:nth-of-type(3) {
+            @include make-col(4);
+        }
+       
+        > div:nth-of-type(4) {
+            @include make-col(3);
+            display:block;
+            height:60vh;
+            padding-top:20vh;
+            padding-left:20px;            
+        }
+    }
+}
+/************/
+/* /GALLERY */
+/************/
+
+
+
+/********/
+/* TEAM */
+/********/
+#team {
+    .row > div {
+        @include make-col-ready();
+        @include make-col(10);
+        @include make-col-offset(1);
+    }
+
+    @include media-breakpoint-up(sm) {
+        .row {
+            .section-title {
+                @include make-col(8);
+                @include make-col-offset(2);
+            }
+        }
+            
+        .partners > div:nth-of-type(1) {
+            @include make-col(3);
+            @include make-col-offset(2);
+        }
+        
+        .partners > div:nth-of-type(2) {
+            @include make-col(3);
+            @include make-col-offset(1);
+        }
+    }
+
+    .partners h3 {
+        margin-top:60px;
+        margin-bottom:40px;
+        height:30px;
+        text-indent: 100%;
+        white-space: nowrap;
+        overflow: hidden;
+        position:relative;
+
+        img {
+            height:30px;
+            position:absolute;
+            left:0px;
+        }
+    }
+}
+/*********/
+/* /TEAM */
+/*********/
+
+
+
+/**********/
+/* LAUNCH */
+/**********/
+#launch-event {
+    .row > div {
+        @include make-col-ready();
+        @include make-col(10);
+        @include make-col-offset(1);
+    }
+}
+/***********/
+/* /LAUNCH */
+/***********/
+
+/**************/
+/* DEVELOPERS */
+/**************/
+#developers {
+    .row > div {
+        @include make-col-ready();
+        @include make-col(10);
+        @include make-col-offset(1);
+    }
+}
+/***************/
+/* /DEVELOPERS */
+/***************/
+
+
+/**********/
+/* FOOTER */
+/**********/
+footer {
+    margin-top:120px;
+    
+    .footer-section {
+        margin-top:80px;
+        color:white;
+    }
+    
+    .footer-vertical-part-1, .footer-vertical-part-2 {
+        padding-top:120px;
+        padding-bottom:120px;
+        background-color:black;
+        @include make-col-ready();
+    }
+    
+    .footer-vertical-part-1 {
+        @include make-col(2);
+    }
+    
+    .footer-vertical-part-2 {
+        @include make-col(8);
+    }
+    
+    .logo {
+        height:30px;
+    }
+
+    ul {
+        list-style-image:url("../img/white_rectangle.png");
+        list-style-position: outside;
+        margin: 0;
+        padding: 0;
+    }
+
+    ul li {
+        margin-top:20px;
+    }
+        
+    @include media-breakpoint-up(sm) {
+        footer {
+            margin-top:160px;
+        }
+
+        .footer-vertical-part-2 {
+            @include media-breakpoint-up(sm) {
+                @include make-col(5);
+            }
+        }
+    }
+}
+/***********/
+/* /FOOTER */
+/***********/
+
+
+
+/********/
+/* MISC */
+/********/
+section {
+    margin-top:120px;
+    
+    @include media-breakpoint-up(sm) {
+        margin-top:160px;
+    }
+}
 
 .wrapper {
     background-color:white;  // For mix-blend-mode to work the same way on Chrome as on Firefox & Safari
@@ -51,9 +340,6 @@ header .container-fluid:first-child {
     top: -15px;
 }
 
-.about-div {
-    margin-top:160px;
-}
 
 h2 {
     margin-bottom:60px;
@@ -82,148 +368,11 @@ p.bigger {
     line-height: 1.85;
 }
 
-.partner h3 {
-    margin-top:60px;
-    margin-bottom:40px;
-    height:30px;
-    text-indent: 100%;
-    white-space: nowrap;
-    overflow: hidden;
-    position:relative;
-
-    img {
-        height:30px;
-        position:absolute;
-        left:0px;
+@include media-breakpoint-up(sm) {
+    #developers {
+        margin-top: (100vw / 12);
     }
 }
-
-#about, #launch-event {
-    margin-top:160px;
-}
-
-#developers {
-    margin-top: (100vw / 12);
-}
-
-#team {
-    margin-top:160px;
-}
-
-#about .row:nth-of-type(2) {
-    margin-top: 60px;
-}
-
-#about .row:nth-of-type(3) {
-    margin-top:(100vw / 12);
-}
-
-/***********/
-/* GALLERY */
-/***********/
-#gallery {
-    margin-top:160px;
-}
-
-#gallery > .row {
-    > div {
-        @include make-col-ready();
-        overflow:hidden;
-    }
-    
-    @include media-breakpoint-up(sm) {
-        > div:nth-of-type(1) {
-            @include make-col(3);
-            
-            height:90vh;
-        }
-        
-        > div:nth-of-type(2) {
-            height:90vh;
-            @include make-col(2);
-            display:flex;
-            flex-direction:column-reverse;
-            
-            .sideways {
-                align-self: flex-end;
-                margin: 0 auto (100vw / 12) auto;
-                writing-mode: sideways-lr;
-            }
-            
-            .black-line {
-                align-self: flex-end;
-                margin: 0 auto 60px auto;
-                height:(2 * (100vw / 12));
-                width:2px;
-                background-color:black;
-            }
-        }
-        
-        > div:nth-of-type(3) {
-            @include make-col(4);
-            
-            height:90vh;
-            padding-top:20vh;
-        }
-        
-        > div:nth-of-type(4) {
-            padding-left:20px;
-            @include make-col(3);
-            
-            height:60vh;
-            padding-top:20vh;
-        }
-    }
-}
-/************/
-/* /GALLERY */
-/************/
-
-/**********/
-/* FOOTER */
-/**********/
-footer {
-    margin-top:160px;
-}
-
-.footer-section {
-    margin-top:80px;
-    color:white;
-}
-
-.footer-vertical-part-1, .footer-vertical-part-2 {
-    padding-top:120px;
-    padding-bottom:120px;
-    background-color:black;
-    @include make-col-ready();
-}
- 
-.footer-vertical-part-1 {
-    @include media-breakpoint-up(sm) {
-        @include make-col(2);
-    }
-}
-
-.footer-vertical-part-2 {
-    @include media-breakpoint-up(sm) {
-        @include make-col(5);
-    }
-}
-
-.logo {
-    height:30px;
-}
-
-footer ul {
-    list-style-image:url("../img/white_rectangle.png");
-    list-style-position: outside;
-    margin: 0;
-    padding: 0;
-}
-
-footer ul li {
-    margin-top:20px;
-}
-/***********/
-/* /FOOTER */
-/***********/
+/*********/
+/* /MISC */
+/*********/
