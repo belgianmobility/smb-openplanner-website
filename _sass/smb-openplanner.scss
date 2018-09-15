@@ -29,7 +29,11 @@ header {
         @include make-col-ready();
     }
     
-    @include media-breakpoint-down(md) {
+    .close-menu-button img, .open-menu-button img {
+        height:30px;
+    }
+    
+    @include media-breakpoint-down(sm) {
         .menu-wrapper {
             background-color:black;
             width:100vw;
