@@ -116,7 +116,8 @@ header .container-fluid:first-child {
             .sideways {
                 align-self: flex-end;
                 margin: 0 auto (100vw / 12) auto;
-                writing-mode: sideways-lr;
+                writing-mode: vertical-rl;
+                transform: rotate(180deg); /* Bugfix : sideways-lr value for writing-mode does not work on Safari, so we use vertical-rl instead and rotate it 180deg */
             }
             
             .black-line {
