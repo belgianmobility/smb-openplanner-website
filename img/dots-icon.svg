@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="21px" height="6px" viewBox="0 0 21 6" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 50.2 (55047) - http://www.bohemiancoding.com/sketch -->
+    <title>dots-icon</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Home" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g transform="translate(-191.000000, -5272.000000)" fill="#FFFFFF" id="Group-9">
+            <g transform="translate(0.000000, 5027.000000)">
+                <g id="Group-8" transform="translate(191.000000, 231.000000)">
+                    <path d="M5.44999094,16.5 L17.0630087,16.5 C17.2850301,15.6373864 18.0680803,15 19,15 C20.1045695,15 21,15.8954305 21,17 C21,18.1045695 20.1045695,19 19,19 C18.0680803,19 17.2850301,18.3626136 17.0630087,17.5 L5.44999094,17.5 C5.21835578,18.6411202 4.20947896,19.5 3,19.5 C1.61928813,19.5 0.5,18.3807119 0.5,17 C0.5,15.6192881 1.61928813,14.5 3,14.5 C4.20947896,14.5 5.21835578,15.3588798 5.44999094,16.5 Z M3,18.5 C3.82842712,18.5 4.5,17.8284271 4.5,17 C4.5,16.1715729 3.82842712,15.5 3,15.5 C2.17157288,15.5 1.5,16.1715729 1.5,17 C1.5,17.8284271 2.17157288,18.5 3,18.5 Z" id="dots-icon"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

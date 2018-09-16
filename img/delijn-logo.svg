@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="87px" height="84px" viewBox="0 0 87 84" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 50.2 (55047) - http://www.bohemiancoding.com/sketch -->
+    <title>delijn-logo</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Home" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g transform="translate(-243.000000, -3835.000000)" fill-rule="nonzero" id="delijn-logo">
+            <g transform="translate(243.000000, 3835.000000)">
+                <polygon id="Shape" fill="#575E61" points="42.228 27.994 35.021 27.994 32.535 41.993 39.742 41.993 40.841 35.768 43.255 41.993 50.828 41.993 53.312 27.998 45.741 27.998 44.622 34.275"></polygon>
+                <polygon id="Shape" fill="#575E61" points="8.393 38.552 10.259 27.998 2.472 27.998 0 42.001 12.159 42.001 12.769 38.552"></polygon>
+                <polygon id="Shape" fill="#575E61" points="22.555 28.004 14.643 28.004 12.9 37.796 20.812 37.796"></polygon>
+                <path d="M23.088,37.492 C22.949,38.293 22.637,38.552 22.039,38.552 L20.677,38.547 L20.068,42.001 L25.615,42.001 C28.603,42.001 30.286,40.422 30.92,36.838 L32.487,28.004 L24.766,28.005 L23.088,37.492 Z" id="Shape" fill="#575E61"></path>
+                <g id="Group" transform="translate(14.000000, 0.000000)" fill="#FFDD00">
+                    <polygon id="Shape" points="72.8 0 15.726 0 12.214 19.826 69.283 19.825"></polygon>
+                    <polygon id="Shape" points="0.855 84 57.926 84 64.953 44.33 7.874 44.33"></polygon>
+                </g>
+                <polygon id="Shape" fill="#575E61" points="22.056 24.209 22.693 24.209 22.814 23.522 22.175 23.522 22.272 23.044 23.417 23.044 23.564 22.166 20.707 22.166 20.086 25.657 22.949 25.657 23.112 24.738 21.969 24.737"></polygon>
+                <path d="M17.196,24.721 L16.948,24.721 L17.236,23.059 L17.484,23.059 C17.484,23.059 17.757,23.042 17.955,23.101 C18.127,23.15 18.34,23.428 18.26,23.876 C18.16,24.442 17.871,24.643 17.599,24.699 C17.468,24.73 17.196,24.721 17.196,24.721 Z M18.669,25.609 C19.247,25.485 19.84,25.088 20.056,23.88 C20.228,22.929 19.791,22.426 19.438,22.283 C19.155,22.169 18.686,22.166 18.423,22.166 L15.67,22.165 L15.056,25.657 C15.056,25.657 17.603,25.657 17.815,25.657 C18.026,25.657 18.384,25.667 18.669,25.609 Z" id="Shape" fill="#575E61"></path>
+                <g id="Group" transform="translate(25.000000, 22.000000)" fill="#000099">
+                    <polygon id="Shape" points="28.716 3.663 29.336 0.167 18.695 0.167 18.077 3.663"></polygon>
+                    <polygon id="Shape" points="17.6 3.663 18.217 0.167 0.797 0.167 0.18 3.663"></polygon>
+                    <polygon id="Shape" points="35.527 3.663 36.148 0.167 29.837 0.167 29.217 3.663"></polygon>
+                    <polygon id="Shape" points="39.812 3.663 40.434 0.167 36.715 0.167 36.094 3.663"></polygon>
+                    <polygon id="Shape" points="42.762 3.663 43.378 0.167 41.09 0.167 40.477 3.663"></polygon>
+                    <polygon id="Shape" points="44.925 3.663 45.546 0.167 44.126 0.167 43.512 3.663"></polygon>
+                    <polygon id="Shape" points="46.609 3.663 47.23 0.167 46.418 0.167 45.8 3.663"></polygon>
+                    <polygon id="Shape" points="48.286 3.663 48.908 0.167 48.279 0.167 47.659 3.663"></polygon>
+                    <polygon id="Shape" points="49.752 3.663 50.374 0.167 49.98 0.167 49.367 3.663"></polygon>
+                    <polygon id="Shape" points="51.391 3.663 52.01 0.167 51.706 0.167 51.087 3.663"></polygon>
+                    <polygon id="Shape" points="53.115 3.663 53.736 0.167 53.458 0.167 52.841 3.663"></polygon>
+                    <polygon id="Shape" points="55.021 3.663 55.641 0.167 55.426 0.167 54.807 3.663"></polygon>
+                    <polygon id="Shape" points="57.255 3.663 57.87 0.167 57.702 0.167 57.088 3.663"></polygon>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
