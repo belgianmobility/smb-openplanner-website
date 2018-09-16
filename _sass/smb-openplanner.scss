@@ -148,7 +148,11 @@ header {
         
         .cover-picture { 
             @include make-col(11);
-            height:50vh; 
+            height:50vh;
+        }
+        
+        .cover-picture img {
+            width:100%;
         }
         
         .site-logo {
@@ -214,8 +218,7 @@ header {
 /***********/
 #gallery {
     img {
-        object-fit:cover;
-        object-position:center center;
+        height:100%;
     }
 
     > .row {
@@ -227,6 +230,10 @@ header {
         > div:nth-of-type(1) {
             @include make-col(3);
             height:90vh;
+            
+            img {
+                transform: translate(calc(12.5vw - 50%), 0);
+            }
         }
 
         > div:nth-of-type(2) {
@@ -234,6 +241,10 @@ header {
             @include make-col(3);        
             display:flex;
             flex-direction:column-reverse;
+            
+            img {
+                transform: translate(calc(12.5vw - 50%), 0);
+            }
 
             .sideways {
                 align-self: flex-end;
@@ -255,6 +266,10 @@ header {
             @include make-col(6);
             height:90vh;
             padding-top:20vh;
+            
+            img {
+                transform: translate(calc(12.5vw - 50%), 0);
+            }
         }
         
         > div:nth-of-type(4) {
@@ -267,6 +282,10 @@ header {
             > div:nth-of-type(2) {
                 @include make-col(2);
                 
+                img {
+                    transform: translate(calc(8.333vw - 50%), 0);
+                }
+                
                 .sideways {
                     margin: 0 auto (100vw / 12) auto;
                 }
@@ -278,6 +297,10 @@ header {
 
             > div:nth-of-type(3) {
                 @include make-col(4);
+                
+                img {
+                    transform: translate(calc(16.666vw - 50%), 0);
+                }
             }
         
             > div:nth-of-type(4) {
@@ -285,7 +308,11 @@ header {
                 display:block;
                 height:60vh;
                 padding-top:20vh;
-                padding-left:20px;            
+                padding-left:20px;
+                
+                img {
+                    transform: translate(calc(12.5vw - 50%), 0);
+                }
             }
         }
     }
@@ -304,25 +331,6 @@ header {
         @include make-col-ready();
         @include make-col(10);
         @include make-col-offset(1);
-    }
-
-    @include media-breakpoint-up(md) {
-        .row {
-            .section-title {
-                @include make-col(8);
-                @include make-col-offset(2);
-            }
-        }
-            
-        .partners > div:nth-of-type(1) {
-            @include make-col(3);
-            @include make-col-offset(2);
-        }
-        
-        .partners > div:nth-of-type(2) {
-            @include make-col(3);
-            @include make-col-offset(1);
-        }
     }
 
     .partners h3 {
@@ -344,6 +352,26 @@ header {
     .okfn.partner {
         h3, img {
         height:50px;
+        }
+    }
+    
+    @include media-breakpoint-up(md) {
+        .row {
+            .section-title {
+                @include make-col(8);
+                @include make-col-offset(2);
+            }
+        }
+            
+        .partners > div:nth-of-type(1) {
+            @include make-col(3);
+            @include make-col-offset(2);
+        }
+        
+        .partners > div:nth-of-type(2) {
+            @include make-col(3);
+            @include make-col-offset(1);
+        }
     }
 }
 /*********/
@@ -365,6 +393,8 @@ header {
 /***********/
 /* /LAUNCH */
 /***********/
+
+
 
 /**************/
 /* DEVELOPERS */
@@ -477,7 +507,6 @@ section {
     text-align: center;
     top: -15px;
 }
-
 
 h2 {
     margin-bottom:60px;
