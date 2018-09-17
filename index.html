@@ -1,23 +1,36 @@
 ---
 layout: default
-title: Publishing better open transport data, enabling an ecosystem of open source route planners.
+title: Open Planner Team – Opening tomorrow's ecosystems.
 ---
 <header>
     <div class="container-fluid">
         <div class="row menu-row">
             <div>
                 <div class="mobile-top-bar-closed">
-                    <img class="site-logo" src="{{ site.baseurl }}/img/opt-logo.svg" alt="{{ site.title }}">
-                    <a href="#" class="open-menu-button"><img src="{{ site.baseurl }}/img/menu-icon-open.svg"></a>
+                    <a href="{{ site.baseurl }}" class="site-link">
+                      <img class="site-logo" src="{{ site.baseurl }}/img/opt-logo.svg" aria-hidden>
+                      <h1>{{ site.title }}</h1>
+                    </a>
+                    <button class="open-menu-button" type="button" aria-label="Open navigation" aria-controls="navigation">
+                      <img src="{{ site.baseurl }}/img/menu-icon-open.svg">
+                    </button>
                 </div>
-                
+
                 <div class="menu-wrapper">
                     <div class="mobile-top-bar-open">
-                        <img class="site-logo-white" src="{{ site.baseurl }}/img/opt-logo-white.svg" alt="{{ site.title }}">
-                        <a href="#" class="close-menu-button"><img src="{{ site.baseurl }}/img/menu-icon-close.svg"></a>
+                        <a href="{{ site.baseurl }}" class="site-link">
+                          <img class="site-logo-white" src="{{ site.baseurl }}/img/opt-logo-white.svg" aria-hidden>
+                          <h1>{{ site.title }}</h1>
+                        </a>
+                        <button class="close-menu-button" type="button" aria-label="Close navigation" aria-controls="navigation">
+                          <img src="{{ site.baseurl }}/img/menu-icon-close.svg">
+                        </button>
                     </div>
                     <nav>
-                        <img class="site-logo" src="{{ site.baseurl }}/img/opt-logo.svg" alt="{{ site.title }}">
+                        <a href="{{ site.baseurl }}" class="site-link">
+                          <img class="site-logo" src="{{ site.baseurl }}/img/opt-logo.svg" aria-hidden>
+                          <h1>{{ site.title }}</h1>
+                        </a>
                         <ul>
                             <li><a href="#about">About</a></li>
                             <li><a href="#team">Team</a></li>
@@ -28,28 +41,26 @@ title: Publishing better open transport data, enabling an ecosystem of open sour
                 </div>
             </div>
         </div>
-        
-        <div class="row title">
-            <div class="col-sm-7 offset-sm-2">
-                <h1>{{ page.title }}</h1>
-            </div>
-        </div>
-    </div>
-
-    <div class="container-fluid">
-        <div class="row">
-            <div class="cover-picture">
-                <img src="img/hero.jpg" alt="">
-            </div>
-        </div>
     </div>
 </header>
+
+<div class="hero">
+  <div class="row title">
+    <h2 class="hero-title">Publishing better open transport data, enabling an ecosystem of open source route planners.</h2>
+  </div>
+  <div class="row">
+    <div class="cover-picture">
+      <img src="img/hero.jpg" aria-hidden>
+    </div>
+  </div>
+</div>
 
 <div class="container-fluid">
     <section id="about">
         <div class="row">
-            <div>
-                <span class="circle"></span><h2>What?</h2>
+            <div class="section-title">
+              <span class="circle"></span>
+              <h3>What?</h3>
             </div>
         </div>
         <div class="row">
@@ -70,67 +81,76 @@ title: Publishing better open transport data, enabling an ecosystem of open sour
     <section id="gallery">
         <div class="row">
             <div>
-                <img src="{{ site.baseurl }}/img/gallery-1.jpg">
+                <img src="{{ site.baseurl }}/img/gallery-1.jpg" aria-hidden>
             </div>
             <div><div class="sideways">Discover our team</div><div class="black-line"></div></div>
             <div>
-                <img src="{{ site.baseurl }}/img/gallery-2.jpg">
+                <img src="{{ site.baseurl }}/img/gallery-2.jpg" aria-hidden>
             </div>
             <div>
-                <img src="{{ site.baseurl }}/img/gallery-3.jpg">
+                <img src="{{ site.baseurl }}/img/gallery-3.jpg" aria-hidden>
             </div>
         </div>
     </section>
-    
+
     <section id="team">
         <div class="row">
             <div class="section-title">
-                <span class="circle"></span><h2>Our team</h2>
+                <span class="circle"></span><h3>Our team</h3>
             </div>
         </div>
-        <div class="row partners">
-            <div class="imec partner">
-                <h3><img src="{{ site.baseurl }}/img/imec-logo.svg" alt="IMEC">IMEC</h3>
-                <p>Researchers from the IDLab team specialize in  Open Data interfaces. Earlier they created Linked Connections as a result from the <a href="https://phd.pietercolpaert.be">PhD of Pieter Colpaert</a>.</p>
-            </div>
-            <div class="anyways partner">
-                <h3><img src="{{ site.baseurl }}/img/anyways-logo.svg" alt="">Anyways</h3>
-                <p>Anyways.eu is a small firm with Ben Abelshausen</p>
-            </div>
-        </div>
-        <div class="row partners">
-            <div class="okfn partner">
-                <h3><img src="{{ site.baseurl }}/img/okfn-logo.svg" alt="">Open Knowledge Belgium</h3>
-                <p>A not for profit building communities around Open Data. Will be organizing <a href="http://openbelgium.be">Open Belgium in February 2019</a> with the public launch event, and the <a href="http://summerofcode.be">open Summer of code 2019</a> with 12 students taking on the ideas from the public call for ideas.</p>
-            </div>
-            <div class="nextmoov partner">
-                <h3><img src="{{ site.baseurl }}/img/nextmoov-logo.svg" alt="">nextmoov</h3>
-                <p>Thomas Hermines and his team are specialized in creating digital experiences.</p>
-            </div>
-        </div>
-        <div class="row partners">
-            <div class="delijn partner">
-                <h3><img src="{{ site.baseurl }}/img/delijn-logo.svg" alt="">De Lijn</h3>
-                <p>A core team of De Lijn will collaborate with researchers from IMEC.</p>
-            </div>
+        <div class="partners">
+          <div class="imec partner">
+            <h4>
+              <img src="{{ site.baseurl }}/img/imec-logo.svg" alt="IMEC">
+              <span>IMEC</span>
+            </h4>
+            <p>Researchers from the IDLab team specialize in  Open Data interfaces. Earlier they created Linked Connections as a result from the <a href="https://phd.pietercolpaert.be">PhD of Pieter Colpaert</a>.</p>
+          </div>
+          <div class="anyways partner">
+            <h4>
+              <img src="{{ site.baseurl }}/img/anyways-logo.svg" alt="">
+              <span>Anyways</span>
+            </h4>
+            <p>Anyways.eu is a small firm with Ben Abelshausen</p>
+          </div>
+          <div class="okfn partner">
+            <h4>
+              <img src="{{ site.baseurl }}/img/okfn-logo.svg" alt="">
+              <span>Open Knowledge Belgium</span>
+            </h4>
+            <p>A not for profit building communities around Open Data. Will be organizing <a href="http://openbelgium.be">Open Belgium in February 2019</a> with the public launch event, and the <a href="http://summerofcode.be">open Summer of code 2019</a> with 12 students taking on the ideas from the public call for ideas.</p>
+          </div>
+          <div class="nextmoov partner">
+            <h4>
+              <img src="{{ site.baseurl }}/img/nextmoov-logo.svg" alt="">
+              <span>nextmoov</span>
+            </h4>
+            <p>Thomas Hermine and his team are specialized in creating digital experiences.</p>
+          </div>
+          <div class="delijn partner">
+            <h4>
+              <img src="{{ site.baseurl }}/img/delijn-logo.svg" alt="">
+              <span>De Lijn</span>
+            </h4>
+            <p>A core team of De Lijn will collaborate with researchers from IMEC.</p>
+          </div>
         </div>
     </section>
-    
-    <section id="launch-event">
-        <div class="row">
-            <div class="col-sm-8 offset-sm-2">
-                <span class="circle"></span><h2>Launch event - February 2019</h2>
-                <p class="bigger">A half day workshop with developers. A press release. A call for ideas. To be announced in January.  We will show you an SDK in which you can immediately start planning routes from A to B, taking into account different parameters.</p>
-            </div>
-        </div>
+
+    <section id="launch-event" class="alt-columns">
+      <div class="section-title">
+        <span class="circle"></span>
+        <h3>Launch event - February 2019</h3>
+      </div>
+      <p class="bigger">A half day workshop with developers. A press release. A call for ideas. To be announced in January.  We will show you an SDK in which you can immediately start planning routes from A to B, taking into account different parameters.</p>
     </section>
-    
-    <section id="developers">
-        <div class="row">
-            <div class="col-sm-6 offset-sm-4">
-                <span class="circle"></span><h2>Developers</h2>
-                <p class="bigger">Can't wait to tag along? We are developing tools on GitHub and are discussing our next steps on a private Slack instance.</p>
-            </div>
-        </div>
+
+    <section id="developers" class="alt-columns">
+      <div class="section-title">
+        <span class="circle"></span>
+        <h3>Developers</h3>
+      </div>
+      <p class="bigger">Can't wait to tag along? We are developing tools on GitHub and are discussing our next steps on a private Slack instance.</p>
     </section>
 </div>
