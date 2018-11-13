@@ -23,3 +23,45 @@
   <script src="{{'/js/bootstrap/bootstrap.min.js' | prepend: site.baseurl}}"></script>
 
 </head>
+<body>
+<header>
+    <div class="container-fluid">
+        <div class="row menu-row">
+            <div>
+                <div class="mobile-top-bar-closed">
+                    <a href="/" class="site-link">
+                      <img class="site-logo" src="{{ site.baseurl }}/img/opt-logo.svg" aria-hidden>
+                      <h1>{{ site.title }}</h1>
+                    </a>
+                    <button class="open-menu-button" type="button" aria-label="Open navigation" aria-controls="navigation">
+                      <img src="{{ site.baseurl }}/img/menu-icon-open.svg">
+                    </button>
+                </div>
+
+                <div class="menu-wrapper">
+                    <div class="mobile-top-bar-open">
+                        <a href="{{ site.baseurl }}" class="site-link">
+                          <img class="site-logo-white" src="{{ site.baseurl }}/img/opt-logo-white.svg" aria-hidden>
+                          <h1>{{ site.title }}</h1>
+                        </a>
+                        <button class="close-menu-button" type="button" aria-label="Close navigation" aria-controls="navigation">
+                          <img src="{{ site.baseurl }}/img/menu-icon-close.svg">
+                        </button>
+                    </div>
+                    <nav>
+                        <a href="{{ site.baseurl }}" class="site-link">
+                          <img class="site-logo" src="{{ site.baseurl }}/img/opt-logo.svg" aria-hidden>
+                          <h1>{{ site.title }}</h1>
+                        </a>
+                        <ul>
+                            <li><a href="/#about">About</a></li>
+                            <li><a href="/#team">Team</a></li>
+                            <li><a href="/developers.html">Developers</a></li>
+                            <li><a href="/#contact">Contact</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
