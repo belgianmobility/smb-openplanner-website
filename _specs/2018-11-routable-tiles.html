@@ -68,7 +68,7 @@ title: Routable Tiles specification
   <h3>Describing a Way</h3>
   <dl>
     <dt>URI:</dt>
-    <dd>https://w3id.org/tiles/terms#Way</dd>
+    <dd>https://w3id.org/openstreetmap/terms#Way</dd>
     <dt>Equivalent Class:</dt>
     <dd>http://www.wikidata.org/entity/Q34442</dd>
     <dt>Label</dt>
@@ -91,7 +91,7 @@ title: Routable Tiles specification
   <h3>Describing Nodes</h3>
   <dl>
     <dt>URI:</dt>
-    <dd>https://w3id.org/tiles/terms#Node</dd>
+    <dd>https://w3id.org/openstreetmap/terms#Node</dd>
     <dt>Label</dt>
     <dd>Node</dd>
     <dt>Description</dt>
@@ -106,7 +106,7 @@ title: Routable Tiles specification
   <h3>Describing turn restrictions</h3>
   <dl>
     <dt>URI:</dt>
-    <dd>https://w3id.org/tiles/terms#Relation</dd>
+    <dd>https://w3id.org/openstreetmap/terms#Relation</dd>
     <dt>Label</dt>
     <dd>Relation</dd>
     <dt>Description</dt>
@@ -118,7 +118,30 @@ title: Routable Tiles specification
     Turn restrictions need to be modeled using a Relation. See <a href="https://wiki.openstreetmap.org/wiki/Relation:restriction">the OSM documentation on turn restrictions</a>.
   </p>
   <h3 id="example">An example</h3>
-  <pre>TODO
+  <pre>
+{
+  "@graph": [
+    {
+      "@id": "#Way1",
+      "@type": "osm:Way"
+      "rdfs:label": "Chaussée de Haecht - Haachtsesteenweg",
+      "osm:maxspeed": "30",
+      "osm:highway": "osm:Tertiary",
+      "osm:nodes" : [
+        {
+          "@id": "#1",
+          "geo:long": 3.14,
+          "geo:lat":51.2
+        },
+        {
+          "@id": "#2",
+          "geo:long": 3.12,
+          "geo:lat":51.32,
+        }
+      ]
+    }
+  ]
+}
   </pre>
 </section>
 <section>
@@ -128,7 +151,6 @@ title: Routable Tiles specification
     Older version can in this way be exposed via the Accept-Datetime header.
   </p>
 </section>
-
 <section>
   <h2>Content-Types</h2>
   <p>
