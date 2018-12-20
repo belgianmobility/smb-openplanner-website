@@ -9,47 +9,123 @@ title: Routable Tiles specification
   <h2>Introduction</h2>
   <p><em>This specification is under heavy development. It is not yet stable.</em></p>
   <p>
-    This specification is a light-weight Linked Data specification for publishing 
+    This is a light-weight Linked Data specification for publishing a tiled road network.
+    It makes use of the general concept of a “Way” that contains “Nodes”.
+    When a server publishes their road network using this specification, a client can automatically discover this and route over it on the fly.
   </p>
-</section>
-
-<section>
-  <h2>The Way</h2>
   <p>
     
   </p>
 </section>
-
-<section>
+<section id="hypermedia">
   <h2>Hypermedia controls</h2>
   <p>
     In order to make it known to a client that these are routable tiles, a client must rely on these hypermedia controls:
     <pre>
-      &lt;https://tiles.openplanner.team/planet&gt; a hydra:Collection ;
-            hydra:manages  &lt;http://www.wikidata.org/entity/Q34442&gt; .
-            hydra:search [
-              hydra:template "https://example.org/tiles/{x}/{y}/14";
-              hydra:variableRepresentation hydra:BasicRepresentation;
-              hydra:mapping [
-                a hydra:IriTemplateMapping;
-                hydra:variable "x";
-                hydra:property tiles:LongitudeTile ;
-                hydra:required true
-              ],[
-                a hydra:IriTemplateMapping;
-                hydra:variable "y";
-                hydra:property tiles:LatitudeTile ;
-                hydra:required true
-              ] .
+{
+    "@context": {
+        "tiles": "https://w3id.org/tree/terms#",
+        "hydra": "http://www.w3.org/ns/hydra/core#",
+        "dcterms": "http://purl.org/dc/terms/",
+        "hydra:variableRepresentation": {"@type":"@id"},
+        "hydra:property": {"@type":"@id"},
+    },
+    "dcterms:isPartOf": {
+        "@id": "https://tiles.openplanner.team/planet",
+        "@type": "hydra:Collection",
+        "hydra:search": {
+            "@type": "hydra:IriTemplate",
+            "hydra:template": "https://tiles.openplanner.team/planet/{x}/{y}/14",
+            "hydra:variableRepresentation": "hydra:BasicRepresentation",
+            "hydra:mapping": [
+                {
+                    "@type": "hydra:IriTemplateMapping",
+                    "hydra:variable": "x",
+                    "hydra:property": "tiles:longitudeTile",
+                    "hydra:required": true
+                },
+                {
+                    "@type": "hydra:IriTemplateMapping",
+                    "hydra:variable": "y",
+                    "hydra:property": "tiles:latitudeTile",
+                    "hydra:required": true
+                }
+            ]
+        }
+    },
+    "@graph" : [ ... other data ... ]
+}
     </pre>
   </p>
 </section>
-
-
+<section id="ways-nodes-relations">
+  <h2>Describing Ways, Nodes and Relations</h2>
+  <p>
+    Each Way, Relation and Node must be identified by an HTTP URI.
+    In each Fragment of data, identified by a URL created with a template as described in <a href="#hypermedia">Hypermedia Controls</a>,
+    Ways are the first subjects that are taken into account.
+  </p>
+  <h3>Describing a Way</h3>
+  <dl>
+    <dt>URI:</dt>
+    <dd>https://w3id.org/tiles/terms#Way</dd>
+    <dt>Equivalent Class:</dt>
+    <dd>http://www.wikidata.org/entity/Q34442</dd>
+    <dt>Label</dt>
+    <dd>Way</dd>
+    <dt>Description</dt>
+    <dd>A road contains nodes</dd>
+    <dt>Is defined by</dt>
+    <dd><a href="https://wiki.openstreetmap.org/wiki/Way">https://wiki.openstreetmap.org/wiki/Way</a></dd>
+  </dl>
+  <p>
+    A Way must contain the following properties when mentioned in a tile:
+    <ul>
+      <li>rdfs:label: The streetname. May be given in multiple languages.</li>
+      <li>tiles:containsNode: a link to multiple nodes as part of an rdf:List</li>
+    </ul>
+    Note: each Way may be contained in multiple tiles, each time only mentioning the Nodes in that precise tile.
+  </p>
+  <p>
+  </p>
+  <h3>Describing Nodes</h3>
+  <dl>
+    <dt>URI:</dt>
+    <dd>https://w3id.org/tiles/terms#Node</dd>
+    <dt>Label</dt>
+    <dd>Node</dd>
+    <dt>Description</dt>
+    <dd>A point on the surface of the Earth. Has a long and a lat.</dd>
+    <dt>Is defined by</dt>
+    <dd><a href="https://wiki.openstreetmap.org/wiki/Node">https://wiki.openstreetmap.org/wiki/Node</a></dd>
+  </dl>
+  <p>
+    While Ways are described across tiles, each Node only appears once.
+    In order to find a full list of Nodes for a Way, a client needs to download more tiles of nodes belonging to a Way.
+  </p>
+  <h3>Describing turn restrictions</h3>
+  <dl>
+    <dt>URI:</dt>
+    <dd>https://w3id.org/tiles/terms#Relation</dd>
+    <dt>Label</dt>
+    <dd>Relation</dd>
+    <dt>Description</dt>
+    <dd>A relation is a group of elements. To be more exact it is one of the core data elements that consists of one or more tags and also an ordered list of one or more nodes, ways and/or relations as members which is used to define logical or geographic relationships between other elements. A member of a relation can optionally have a role which describes the part that a particular feature plays within a relation.</dd>
+    <dt>Is defined by</dt>
+    <dd><a href="https://wiki.openstreetmap.org/wiki/Relation">https://wiki.openstreetmap.org/wiki/Relation</a></dd>
+  </dl>
+  <p>
+    Turn restrictions need to be modeled using a Relation. See <a href="https://wiki.openstreetmap.org/wiki/Relation:restriction">the OSM documentation on turn restrictions</a>.
+  </p>
+  <h3 id="example">An example</h3>
+  <pre>TODO
+  </pre>
+</section>
 <section>
   <h2>Archiving</h2>
   <p>
-    <a href="http://mementoweb.org/guide/rfc/">Memento</a>
+    In order to access older versions, the <a href="http://mementoweb.org/guide/rfc/">Memento</a> protocol must be followed.
+    Older version can in this way be exposed via the Accept-Datetime header.
   </p>
 </section>
 
@@ -59,6 +135,6 @@ title: Routable Tiles specification
     The Linked Data from the tiles must be provided in JSON-LD with a content-type application/ld+json.
   </p>
   <p>
-    Other Content-Types may be served using content-negotiation, such as GeoJSON, ...
+    Other Content-Types may be served using content-negotiation, such as GeoJSON.
   </p>
 </section>
