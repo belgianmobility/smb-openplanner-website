@@ -10,7 +10,8 @@ title: Routable Tiles specification
   <p><em>This specification is under heavy development. It is not yet stable.</em></p>
   <p>
     This is a light-weight Linked Data specification for publishing a tiled road network.
-    It makes use of the general concept of a “Way” that contains “Nodes”.
+    It makes use of the general concept of a “Way” that contains “Nodes”. Potential “Relations” indicate whether you are allowed to take a turn or not.
+    It takes the model of Open Street Map.
     When a server publishes their road network using this specification, a client can automatically discover this and route over it on the fly.
   </p>
   <p>
@@ -26,13 +27,18 @@ title: Routable Tiles specification
     "@context": {
         "tiles": "https://w3id.org/tree/terms#",
         "hydra": "http://www.w3.org/ns/hydra/core#",
+        "osm": "https://w3id.org/openstreetmap/terms#",
         "dcterms": "http://purl.org/dc/terms/",
-        "hydra:variableRepresentation": {"@type":"@id"},
-        "hydra:property": {"@type":"@id"},
+        "dcterms:license": {"@type": "@id"},
+        "hydra:variableRepresentation": {"@type": "@id"},
+        "hydra:property": {"@type": "@id"}
     },
+    "@id": "«currentPageURL»",
     "dcterms:isPartOf": {
         "@id": "https://tiles.openplanner.team/planet",
         "@type": "hydra:Collection",
+        "dcterms:license": "http://opendatacommons.org/licenses/odbl/1-0/",
+        "dcterms:rights": "http://www.openstreetmap.org/copyright",
         "hydra:search": {
             "@type": "hydra:IriTemplate",
             "hydra:template": "https://tiles.openplanner.team/planet/{x}/{y}/14",
@@ -53,7 +59,7 @@ title: Routable Tiles specification
             ]
         }
     },
-    "@graph" : [ ... other data ... ]
+    "@graph" : [ ... <a href="#example">other data</a> ... ]
 }
     </pre>
   </p>
@@ -126,19 +132,41 @@ title: Routable Tiles specification
       "@type": "osm:Way"
       "rdfs:label": "Chaussée de Haecht - Haachtsesteenweg",
       "osm:maxspeed": "30",
-      "osm:highway": "osm:Tertiary",
-      "osm:nodes" : [
-        {
-          "@id": "#1",
-          "geo:long": 3.14,
-          "geo:lat":51.2
-        },
-        {
-          "@id": "#2",
-          "geo:long": 3.12,
-          "geo:lat":51.32,
-        }
-      ]
+      "osm:highway": "osm:tertiary",
+      "osm:nodes" : [ "#Node1", "#Node2" ]
+    },
+    {
+      "@id": "#Node1",
+      "geo:long": 3.14,
+      "geo:lat": 51.2
+    },
+    {
+      "@id": "#Node2",
+      "geo:long": 3.12,
+      "geo:lat": 51.32,
+    },
+    {
+      "@id": "#Node3",
+      "geo:long": 3.22,
+      "geo:lat": 51.22,
+    },
+    {
+      "@id": "#Way2",
+      "@type": "osm:Way",
+      "rdfs:label": "Rue Cornet de Grez - Cornet de Grezstraat",
+      "osm:highway": "residential",
+      "osm:oneway": "yes",
+      "osm:oneway-bicycle": "no",
+      "osm:highway": "osm:tertiary",
+      "osm:nodes" : [ "#Node1", "#Node3" ]
+    },
+    {
+      "@id": "#TurnRestriction1",
+      "@type": "osm:Relation",
+      "osm:restriction":"osm:no_right_turn",
+      "osm:from": "#Way1",
+      "osm:to": "#Way2",
+      "osm:via": "#Node1"
     }
   ]
 }
@@ -147,8 +175,9 @@ title: Routable Tiles specification
 <section>
   <h2>Archiving</h2>
   <p>
+    When working on live data, query consistency must be able to be guaranteed by requesting the tiles from a specific moment.
     In order to access older versions, the <a href="http://mementoweb.org/guide/rfc/">Memento</a> protocol must be followed.
-    Older version can in this way be exposed via the Accept-Datetime header.
+    Older versions can in this way be exposed via the Accept-Datetime header.
   </p>
 </section>
 <section>
