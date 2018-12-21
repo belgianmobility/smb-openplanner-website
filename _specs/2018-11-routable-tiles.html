@@ -154,7 +154,7 @@ title: Routable Tiles specification
       "@id": "#Way2",
       "@type": "osm:Way",
       "rdfs:label": "Rue Cornet de Grez - Cornet de Grezstraat",
-      "osm:highway": "residential",
+      "osm:highway": "osm:residential",
       "osm:oneway": "yes",
       "osm:oneway-bicycle": "no",
       "osm:highway": "osm:tertiary",
@@ -186,6 +186,34 @@ title: Routable Tiles specification
     The Linked Data from the tiles must be provided in JSON-LD with a content-type application/ld+json.
   </p>
   <p>
-    Other Content-Types may be served using content-negotiation, such as GeoJSON.
+    Other Content-Types may be served using content-negotiation, such as GeoJSON, N-Quads, TriG...
+  </p>
+  <p>
+    
+  </p>
+</section>
+<section>
+  <h2 id="ontology">Open Street Map Ontology</h2>
+  <h3>Classes</h3>
+  <p>
+    As defined above, we have 3 main classes: osm:Way, osm:Relation and osm:Node.
+  </p>
+  <h3>Properties</h3>
+  <p>
+    osm:from, osm:to and osm:via are predicates to indicate how a Relation maps Ways and Nodes.
+  </p>
+  <p>
+    osm:restriction is used to model turn restrictions. There are <a href="https://wiki.openstreetmap.org/wiki/Relation:restriction">9 possibilities as a range</a>:
+    <ol>
+      <li>osm:no_left_turn</li>
+      <li>osm:no_right_turn</li>
+      <li>osm:no_straight_on</li>
+      <li>osm:no_u_turn</li>
+      <li>osm:only_right_turn</li>
+      <li>osm:only_left_turn</li>
+      <li>osm:only_straight_on</li>
+      <li>osm:no_entry</li>
+      <li>osm:no_exit</li>
+    </ol>
   </p>
 </section>
