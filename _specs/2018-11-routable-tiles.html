@@ -28,6 +28,8 @@ title: Routable Tiles specification
         "tiles": "https://w3id.org/tree/terms#",
         "hydra": "http://www.w3.org/ns/hydra/core#",
         "osm": "https://w3id.org/openstreetmap/terms#",
+        "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+        "geo": "http://www.w3.org/2003/01/geo/wgs84_pos#",
         "dcterms": "http://purl.org/dc/terms/",
         "dcterms:license": {"@type": "@id"},
         "hydra:variableRepresentation": {"@type": "@id"},
@@ -129,7 +131,7 @@ title: Routable Tiles specification
   "@graph": [
     {
       "@id": "#Way1",
-      "@type": "osm:Way"
+      "@type": "osm:Way",
       "rdfs:label": "Chaussée de Haecht - Haachtsesteenweg",
       "osm:maxspeed": "30",
       "osm:highway": "osm:tertiary",
@@ -143,12 +145,12 @@ title: Routable Tiles specification
     {
       "@id": "#Node2",
       "geo:long": 3.12,
-      "geo:lat": 51.32,
+      "geo:lat": 51.32
     },
     {
       "@id": "#Node3",
       "geo:long": 3.22,
-      "geo:lat": 51.22,
+      "geo:lat": 51.22
     },
     {
       "@id": "#Way2",
