@@ -33,7 +33,10 @@ title: Routable Tiles specification
         "dcterms": "http://purl.org/dc/terms/",
         "dcterms:license": {"@type": "@id"},
         "hydra:variableRepresentation": {"@type": "@id"},
-        "hydra:property": {"@type": "@id"}
+        "hydra:property": {"@type": "@id"},
+        "osm:nodes": {
+            "@container": "@list"
+        }
     },
     "@id": "«currentPageURL»",
     "dcterms:isPartOf": {
@@ -43,7 +46,7 @@ title: Routable Tiles specification
         "dcterms:rights": "http://www.openstreetmap.org/copyright",
         "hydra:search": {
             "@type": "hydra:IriTemplate",
-            "hydra:template": "https://tiles.openplanner.team/planet/{x}/{y}/14",
+            "hydra:template": "https://tiles.openplanner.team/14/{x}/{y}",
             "hydra:variableRepresentation": "hydra:BasicRepresentation",
             "hydra:mapping": [
                 {
@@ -217,5 +220,10 @@ title: Routable Tiles specification
       <li>osm:no_entry</li>
       <li>osm:no_exit</li>
     </ol>
+  </p>
+  <p>
+    The property osm:nodes is used to link to an rdf:List of osm:Node items.
+    In one page, multiple lists can be described.
+    If a Way crosses a tile, the other tile also mentioned the border Node in one of its rdf:Lists.
   </p>
 </section>
