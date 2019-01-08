@@ -39,6 +39,9 @@ title: Routable Tiles specification
         }
     },
     "@id": "«currentPageURL»",
+    "tiles:zoom": 14,
+    "tiles:longitudeTile": 8398,
+    "tiles:latitudeTile": 5463,
     "dcterms:isPartOf": {
         "@id": "https://tiles.openplanner.team/planet",
         "@type": "hydra:Collection",
@@ -76,7 +79,7 @@ title: Routable Tiles specification
     In each Fragment of data, identified by a URL created with a template as described in <a href="#hypermedia">Hypermedia Controls</a>,
     Ways are the first subjects that are taken into account.
   </p>
-  <h3>Describing a Way</h3>
+  <strong>Describing a Way</strong>
   <dl>
     <dt>URI:</dt>
     <dd>https://w3id.org/openstreetmap/terms#Way</dd>
@@ -99,7 +102,7 @@ title: Routable Tiles specification
   </p>
   <p>
   </p>
-  <h3>Describing Nodes</h3>
+  <strong>Describing Nodes</strong>
   <dl>
     <dt>URI:</dt>
     <dd>https://w3id.org/openstreetmap/terms#Node</dd>
@@ -114,7 +117,7 @@ title: Routable Tiles specification
     While Ways are described across tiles, each Node only appears once.
     In order to find a full list of Nodes for a Way, a client needs to download more tiles of nodes belonging to a Way.
   </p>
-  <h3>Describing turn restrictions</h3>
+  <strong>Describing turn restrictions</strong>
   <dl>
     <dt>URI:</dt>
     <dd>https://w3id.org/openstreetmap/terms#Relation</dd>
@@ -128,9 +131,12 @@ title: Routable Tiles specification
   <p>
     Turn restrictions need to be modeled using a Relation. See <a href="https://wiki.openstreetmap.org/wiki/Relation:restriction">the OSM documentation on turn restrictions</a>.
   </p>
-  <h3 id="example">An example</h3>
+  <strong id="example">An example</strong>
   <pre>
 {
+  "@context" : {
+     ... <a href="#hypermedia">See top</a>...
+  } 
   "@graph": [
     {
       "@id": "#Way1",
@@ -199,11 +205,11 @@ title: Routable Tiles specification
 </section>
 <section>
   <h2 id="ontology">Open Street Map Ontology</h2>
-  <h3>Classes</h3>
+  <strong>Classes</strong>
   <p>
     As defined above, we have 3 main classes: osm:Way, osm:Relation and osm:Node.
   </p>
-  <h3>Properties</h3>
+  <strong>Properties</strong>
   <p>
     osm:from, osm:to and osm:via are predicates to indicate how a Relation maps Ways and Nodes.
   </p>
