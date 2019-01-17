@@ -11,7 +11,7 @@ title: Routable Tiles specification
   <p>
     This is a light-weight Linked Data specification for publishing a tiled road network.
     It makes use of the general concept of a “Way” that contains “Nodes”. Potential “Relations” indicate whether you are allowed to take a turn or not.
-    It takes the model of Open Street Map.
+    It takes the model of OpenStreetMap (OSM). We try stay as close to what's in OSM as possible, we don't validate tags or their values.
     When a server publishes their road network using this specification, a client can automatically discover this and route over it on the fly.
   </p>
   <p>
@@ -108,8 +108,15 @@ title: Routable Tiles specification
     <dd><a href="https://wiki.openstreetmap.org/wiki/Node">https://wiki.openstreetmap.org/wiki/Node</a></dd>
   </dl>
   <p>
-    While Ways are described across tiles, each Node only appears once.
+    While Ways are described across tiles, each Node only appears once except nodes that are part of ways crossing tile boundaries.
     In order to find a full list of Nodes for a Way, a client needs to download more tiles of nodes belonging to a Way.
+  </p>
+  <p>
+    A Node can also describe restrictions, usually in the form of barriers:
+    <ul>
+      <li>osm:barrier: The type of barrier, this could be, for example <a href="https://wiki.openstreetmap.org/wiki/Tag:barrier=bollard?uselang=en">bollard</a>.</li>
+      <li>osm:{access}: Zero or more access restrictions for the barrier, this can be expected to be one of the <a href="https://wiki.openstreetmap.org/wiki/Key:access">access</a> tags.</li>
+    </ul>
   </p>
   <h3>Describing turn restrictions</h3>
   <dl>
@@ -146,6 +153,9 @@ title: Routable Tiles specification
       "@id": "#Node2",
       "geo:long": 3.12,
       "geo:lat": 51.32
+      "osm:barrier": "osm:bollard"
+      "osm:foot": "osm:yes"
+      "osm:bicycle": "osm:yes"
     },
     {
       "@id": "#Node3",
