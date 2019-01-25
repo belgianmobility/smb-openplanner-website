@@ -1,0 +1,246 @@
+---
+permalink: specs/2018-11-routable-tiles
+layout: post
+author: Pieter Colpaert, Ben Abelshausen, Julián Rojas
+title: Routable Tiles specification
+---
+
+<section>
+  <h2>Introduction</h2>
+  <p><em>This specification is under heavy development. It is not yet stable.</em></p>
+  <p>
+    This is a light-weight Linked Data specification for publishing a tiled road network.
+    It makes use of the general concept of a “Way” that contains “Nodes”. Potential “Relations” indicate whether you are allowed to take a turn or not.
+    It takes the model of OpenStreetMap (OSM). We try stay as close to what's in OSM as possible, we don't validate tags or their values.
+    When a server publishes their road network using this specification, a client can automatically discover this and route over it on the fly.
+  </p>
+  <p>
+    
+  </p>
+</section>
+<section id="hypermedia">
+  <h2>Hypermedia controls</h2>
+  <p>
+    In order to make it known to a client that these are routable tiles, a client must rely on these hypermedia controls:
+    <pre>
+{
+    "@context": {
+        "tiles": "https://w3id.org/tree/terms#",
+        "hydra": "http://www.w3.org/ns/hydra/core#",
+        "osm": "https://w3id.org/openstreetmap/terms#",
+        "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+        "geo": "http://www.w3.org/2003/01/geo/wgs84_pos#",
+        "dcterms": "http://purl.org/dc/terms/",
+        "dcterms:license": {"@type": "@id"},
+        "hydra:variableRepresentation": {"@type": "@id"},
+        "hydra:property": {"@type": "@id"},
+        "osm:nodes": {
+            "@container": "@list",
+            "@type": "@id"
+        }
+    },
+    "@id": "«currentPageURL»",
+    "tiles:zoom": 14,
+    "tiles:longitudeTile": 8398,
+    "tiles:latitudeTile": 5463,
+    "dcterms:isPartOf": {
+        "@id": "https://tiles.openplanner.team/planet",
+        "@type": "hydra:Collection",
+        "dcterms:license": "http://opendatacommons.org/licenses/odbl/1-0/",
+        "dcterms:rights": "http://www.openstreetmap.org/copyright",
+        "hydra:search": {
+            "@type": "hydra:IriTemplate",
+            "hydra:template": "https://tiles.openplanner.team/14/{x}/{y}",
+            "hydra:variableRepresentation": "hydra:BasicRepresentation",
+            "hydra:mapping": [
+                {
+                    "@type": "hydra:IriTemplateMapping",
+                    "hydra:variable": "x",
+                    "hydra:property": "tiles:longitudeTile",
+                    "hydra:required": true
+                },
+                {
+                    "@type": "hydra:IriTemplateMapping",
+                    "hydra:variable": "y",
+                    "hydra:property": "tiles:latitudeTile",
+                    "hydra:required": true
+                }
+            ]
+        }
+    },
+    "@graph" : [ ... <a href="#example">other data</a> ... ]
+}
+    </pre>
+  </p>
+</section>
+<section id="ways-nodes-relations">
+  <h2>Describing Ways, Nodes and Relations</h2>
+  <p>
+    Each Way, Relation and Node must be identified by an HTTP URI.
+    In each Fragment of data, identified by a URL created with a template as described in <a href="#hypermedia">Hypermedia Controls</a>,
+    Ways are the first subjects that are taken into account.
+  </p>
+  <strong>Describing a Way</strong>
+  <dl>
+    <dt>URI:</dt>
+    <dd>https://w3id.org/openstreetmap/terms#Way</dd>
+    <dt>Equivalent Class:</dt>
+    <dd>http://www.wikidata.org/entity/Q34442</dd>
+    <dt>Label</dt>
+    <dd>Way</dd>
+    <dt>Description</dt>
+    <dd>A road contains nodes</dd>
+    <dt>Is defined by</dt>
+    <dd><a href="https://wiki.openstreetmap.org/wiki/Way">https://wiki.openstreetmap.org/wiki/Way</a></dd>
+  </dl>
+  <p>
+    A Way must contain the following properties when mentioned in a tile:
+    <ul>
+      <li>rdfs:label: The streetname. May be given in multiple languages.</li>
+      <li>tiles:containsNode: a link to multiple nodes as part of an rdf:List</li>
+    </ul>
+    Note: each Way may be contained in multiple tiles, each time only mentioning the Nodes in that precise tile.
+  </p>
+  <p>
+  </p>
+  <strong>Describing Nodes</strong>
+  <dl>
+    <dt>URI:</dt>
+    <dd>https://w3id.org/openstreetmap/terms#Node</dd>
+    <dt>Label</dt>
+    <dd>Node</dd>
+    <dt>Description</dt>
+    <dd>A point on the surface of the Earth. Has a long and a lat.</dd>
+    <dt>Is defined by</dt>
+    <dd><a href="https://wiki.openstreetmap.org/wiki/Node">https://wiki.openstreetmap.org/wiki/Node</a></dd>
+  </dl>
+  <p>
+    While Ways are described across tiles, each Node only appears once except nodes that are part of ways crossing tile boundaries.
+    In order to find a full list of Nodes for a Way, a client needs to download more tiles of nodes belonging to a Way.
+  </p>
+  <p>
+    A Node can also describe restrictions, usually in the form of barriers:
+    <ul>
+      <li>osm:barrier: The type of barrier, this could be, for example <a href="https://wiki.openstreetmap.org/wiki/Tag:barrier=bollard?uselang=en">bollard</a>.</li>
+      <li>osm:{access}: Zero or more access restrictions for the barrier, this can be expected to be one of the <a href="https://wiki.openstreetmap.org/wiki/Key:access">access</a> tags.</li>
+    </ul>
+  </p>
+  <strong>Describing turn restrictions</strong>
+  <dl>
+    <dt>URI:</dt>
+    <dd>https://w3id.org/openstreetmap/terms#Relation</dd>
+    <dt>Label</dt>
+    <dd>Relation</dd>
+    <dt>Description</dt>
+    <dd>A relation is a group of elements. To be more exact it is one of the core data elements that consists of one or more tags and also an ordered list of one or more nodes, ways and/or relations as members which is used to define logical or geographic relationships between other elements. A member of a relation can optionally have a role which describes the part that a particular feature plays within a relation.</dd>
+    <dt>Is defined by</dt>
+    <dd><a href="https://wiki.openstreetmap.org/wiki/Relation">https://wiki.openstreetmap.org/wiki/Relation</a></dd>
+  </dl>
+  <p>
+    Turn restrictions need to be modeled using a Relation. See <a href="https://wiki.openstreetmap.org/wiki/Relation:restriction">the OSM documentation on turn restrictions</a>.
+  </p>
+  <strong id="example">An example</strong>
+  <pre>
+{
+  "@context" : {
+     ... <a href="#hypermedia">See top</a>...
+  } 
+  "@graph": [
+    {
+      "@id": "#Way1",
+      "@type": "osm:Way",
+      "rdfs:label": "Chaussée de Haecht - Haachtsesteenweg",
+      "osm:maxspeed": "30",
+      "osm:highway": "osm:tertiary",
+      "osm:nodes" : [ "#Node1", "#Node2" ]
+    },
+    {
+      "@id": "#Node1",
+      "geo:long": 3.14,
+      "geo:lat": 51.2
+    },
+    {
+      "@id": "#Node2",
+      "geo:long": 3.12,
+      "geo:lat": 51.32
+      "osm:barrier": "osm:bollard"
+      "osm:foot": "osm:yes"
+      "osm:bicycle": "osm:yes"
+    },
+    {
+      "@id": "#Node3",
+      "geo:long": 3.22,
+      "geo:lat": 51.22
+    },
+    {
+      "@id": "#Way2",
+      "@type": "osm:Way",
+      "rdfs:label": "Rue Cornet de Grez - Cornet de Grezstraat",
+      "osm:highway": "osm:residential",
+      "osm:oneway": "yes",
+      "osm:oneway-bicycle": "no",
+      "osm:highway": "osm:tertiary",
+      "osm:nodes" : [ "#Node1", "#Node3" ]
+    },
+    {
+      "@id": "#TurnRestriction1",
+      "@type": "osm:Relation",
+      "osm:restriction":"osm:no_right_turn",
+      "osm:from": "#Way1",
+      "osm:to": "#Way2",
+      "osm:via": "#Node1"
+    }
+  ]
+}
+  </pre>
+</section>
+<section>
+  <h2>Archiving</h2>
+  <p>
+    When working on live data, query consistency must be able to be guaranteed by requesting the tiles from a specific moment.
+    In order to access older versions, the <a href="http://mementoweb.org/guide/rfc/">Memento</a> protocol must be followed.
+    Older versions can in this way be exposed via the Accept-Datetime header.
+  </p>
+</section>
+<section>
+  <h2>Content-Types</h2>
+  <p>
+    The Linked Data from the tiles must be provided in JSON-LD with a content-type application/ld+json.
+  </p>
+  <p>
+    Other Content-Types may be served using content-negotiation, such as GeoJSON, N-Quads, TriG...
+  </p>
+  <p>
+    
+  </p>
+</section>
+<section>
+  <h2 id="ontology">Open Street Map Ontology</h2>
+  <strong>Classes</strong>
+  <p>
+    As defined above, we have 3 main classes: osm:Way, osm:Relation and osm:Node.
+  </p>
+  <strong>Properties</strong>
+  <p>
+    osm:from, osm:to and osm:via are predicates to indicate how a Relation maps Ways and Nodes.
+  </p>
+  <p>
+    osm:restriction is used to model turn restrictions. There are <a href="https://wiki.openstreetmap.org/wiki/Relation:restriction">9 possibilities as a range</a>:
+    <ol>
+      <li>osm:no_left_turn</li>
+      <li>osm:no_right_turn</li>
+      <li>osm:no_straight_on</li>
+      <li>osm:no_u_turn</li>
+      <li>osm:only_right_turn</li>
+      <li>osm:only_left_turn</li>
+      <li>osm:only_straight_on</li>
+      <li>osm:no_entry</li>
+      <li>osm:no_exit</li>
+    </ol>
+  </p>
+  <p>
+    The property osm:nodes is used to link to an rdf:List of osm:Node items.
+    In one page, multiple lists can be described.
+    If a Way crosses a tile, the other tile also mentioned the border Node in one of its rdf:Lists.
+  </p>
+</section>

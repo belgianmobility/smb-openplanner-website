@@ -2,50 +2,29 @@
 layout: default
 title: Open Planner Team – for developers
 ---
-<header>
-    <div class="container-fluid">
-        <div class="row menu-row">
-            <div>
-                <div class="mobile-top-bar-closed">
-                    <a href="/" class="site-link">
-                      <img class="site-logo" src="{{ site.baseurl }}/img/opt-logo.svg" aria-hidden>
-                      <h1>{{ site.title }}</h1>
-                    </a>
-                    <button class="open-menu-button" type="button" aria-label="Open navigation" aria-controls="navigation">
-                      <img src="{{ site.baseurl }}/img/menu-icon-open.svg">
-                    </button>
-                </div>
+<div class="container-fluid">
 
-                <div class="menu-wrapper">
-                    <div class="mobile-top-bar-open">
-                        <a href="/" class="site-link">
-                          <img class="site-logo-white" src="{{ site.baseurl }}/img/opt-logo-white.svg" aria-hidden>
-                          <h1>{{ site.title }}</h1>
-                        </a>
-                        <button class="close-menu-button" type="button" aria-label="Close navigation" aria-controls="navigation">
-                          <img src="{{ site.baseurl }}/img/menu-icon-close.svg">
-                        </button>
-                    </div>
-                    <nav>
-                        <a href="/" class="site-link">
-                          <img class="site-logo" src="{{ site.baseurl }}/img/opt-logo.svg" aria-hidden>
-                          <h1>{{ site.title }}</h1>
-                        </a>
-                        <ul>
-                            <li><a href="/#about">About</a></li>
-                            <li><a href="/#team">Team</a></li>
-                            <li><a href="/developers.html">Developers</a></li>
-                            <li><a href="/#contact">Contact</a></li>
-                        </ul>
-                    </nav>
-                </div>
+    <section id="specifications" class="titledsection alt-columns">
+        <div class="row">
+            <div class="section-title">
+              <span class="circle"></span>
+              <h3>Specifications</h3>
             </div>
         </div>
-    </div>
-</header>
-
-<div class="container-fluid">
-    <section id="about">
+        <div class="row">
+          <div>
+            <p>Our ecosystem is built on a couple of core specifications:</p>
+            <ul>
+              <li>The <a href="https://linkedconnections.org/specification/">Linked Connections specification</a></li>
+              <li>The <a href="/specs/2018-11-routable-tiles/">Routable Tiles specification</a></li>
+            </ul>
+            <p></p>
+          </div>
+        </div>
+        
+    </section>
+  
+    <section id="datasets"  class="titledsection alt-columns">
         <div class="row">
             <div class="section-title">
               <span class="circle"></span>
@@ -54,19 +33,21 @@ title: Open Planner Team – for developers
         </div>
         <div class="row">
           <div>
+            <dl>
+              <dt>SNCB/NMBS</dt>
+              <dd>Connections available at <a href="https://graph.irail.be/sncb/connections/">https://graph.irail.be/sncb/connections/</a>.</dd>
+            </dl>
+          </div> 
+          <div>
             <p>You can currently find our datasets described in the DCAT-AP metadata standard at <a href="https://github.com/openplannerteam/opentransportdatabe">https://github.com/openplannerteam/opentransportdatabe</a></p>
-            <p>In a later phase of the project, this is going to be visualized on this page.</p>
           </div>
         </div>
-        
     </section>
-    
-
-    <section id="developers" class="alt-columns">
+    <section id="tutorials" class="titledsection alt-columns">
       <div class="section-title">
         <span class="circle"></span>
         <h3>Tutorials</h3>
       </div>
-      <p class="bigger">Soon you will be able to find JS tutorials here of how to use the datasets.</p>
+      <p class="bigger">You can find our JavaScript tool’s documentation and demos at <a href="https://openplannerteam.github.io/planner.js/">https://openplannerteam.github.io/planner.js/</a></p>
     </section>
 </div>
