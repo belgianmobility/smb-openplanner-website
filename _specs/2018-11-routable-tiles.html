@@ -37,6 +37,10 @@ title: Routable Tiles specification
         "osm:nodes": {
             "@container": "@list",
             "@type": "@id"
+        },
+        "osm:members": {
+            "@container": "@list",
+            "@type": "@id"
         }
     },
     "@id": "«currentPageURL»",
@@ -125,7 +129,7 @@ title: Routable Tiles specification
       <li>osm:{access}: Zero or more access restrictions for the barrier, this can be expected to be one of the <a href="https://wiki.openstreetmap.org/wiki/Key:access">access</a> tags.</li>
     </ul>
   </p>
-  <strong>Describing turn restrictions</strong>
+  <strong>Describing Relations</strong>
   <dl>
     <dt>URI:</dt>
     <dd>https://w3id.org/openstreetmap/terms#Relation</dd>
@@ -186,9 +190,23 @@ title: Routable Tiles specification
       "@id": "#TurnRestriction1",
       "@type": "osm:Relation",
       "osm:restriction":"osm:no_right_turn",
-      "osm:from": "#Way1",
-      "osm:to": "#Way2",
-      "osm:via": "#Node1"
+      "osm:members" : [
+        {
+          "@id": "#Way1",
+          "@type": "osm:Way",
+          "osm:role": "osm:from"
+        },
+        {
+          "@id": "#Way2",
+          "@type": "osm:Way",
+          "osm:role": "osm:to"
+        },
+        {
+          "@id": "#Node1",
+          "@type": "osm:Node",
+          "osm:role": "osm:via"
+        }
+      ]
     }
   ]
 }
@@ -215,7 +233,7 @@ title: Routable Tiles specification
   </p>
 </section>
 <section>
-  <h2 id="ontology">Open Street Map Ontology</h2>
+  <h2 id="ontology">OpenStreetMap Ontology</h2>
   <strong>Classes</strong>
   <p>
     As defined above, we have 3 main classes: osm:Way, osm:Relation and osm:Node.
@@ -242,5 +260,6 @@ title: Routable Tiles specification
     The property osm:nodes is used to link to an rdf:List of osm:Node items.
     In one page, multiple lists can be described.
     If a Way crosses a tile, the other tile also mentioned the border Node in one of its rdf:Lists.
+    The property osm:members is used to link to an rdf:List of osm:Member items.
   </p>
 </section>
