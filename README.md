@@ -8,3 +8,12 @@ Run it yourself locally:
  
 If you want to build it for production purposes, use `bundle exec jekyll b`
 
+---
+## Add new section
+
+1. Create new `html` file in `_includes/sections`.
+2. Include this new section in `index.html`, exemple: `{% include sections/developers.html %}`
+3. Global css sections are in `_sass/global/base.scss`.
+4. You can create your custom css section, creating a new file w/ section name in `_sass/partials`. You need to include this new file in `_sass/partials/all.scss`.
+5. Don't forget to link it in `_includes/navigation.html`.
+
