@@ -1,0 +1,89 @@
+
+@import "includes";
+
+.container-fluid{
+    background-color: $white;
+    padding-top: 130px;
+
+    @include media-breakpoint-down(sm) {
+        padding-top: 70px;
+    }
+}
+
+.row{
+    margin: 0px;
+}
+
+.row-content{
+    padding: 0 10vw;
+
+    @include media-breakpoint-down(sm) {
+        padding: 0;
+    }
+}
+
+.col-sm-12{
+    @include media-breakpoint-down(sm) {
+        padding: 0;
+    }
+}
+
+.justify-content-center{
+    justify-content: center;
+}
+
+.text-center{
+    text-align: center;
+}
+
+h3{
+    margin-bottom:60px;
+    font-weight: 400;
+    font-size: 40px;
+    letter-spacing: -0.00625em;
+    line-height: 1.2;
+}
+
+h4{
+    font-size: 24px;
+    margin-bottom: 40px;
+}
+
+p{
+    @include media-breakpoint-down(sm) {
+        font-size: 15px;
+    }
+}
+
+.circle {
+    background-color: white;
+    height: 54px;
+    width: 54px;
+    border-radius: 50%;
+    display: inline-block;
+    mix-blend-mode: difference;
+    position: absolute;
+    left: -16px;
+    top: -3px;
+    pointer-events: none;
+
+    @include media-breakpoint-up(md) {
+      height: 74px;
+      width: 74px;
+      left: -36px;
+      top: -14px;
+    }
+}
+
+#particles-js{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    top: 160px;
+    canvas {
+        display: block;
+        vertical-align: bottom;
+        position: fixed;
+      }
+}
