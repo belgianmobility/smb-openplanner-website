@@ -12,6 +12,7 @@ header {
       z-index: 1;
       height: 75px;
       transition: top 0.8s;
+      max-width: 100vw;
     }
 
     @include media-breakpoint-up(md) {
@@ -21,6 +22,9 @@ header {
       background-color: white;
       z-index: 10;
       transition: top 0.5s;
+      max-width: 100vw;
+      padding-left: 5vw;
+      padding-right: 5vw;
     }
 
     .menu-row{
@@ -104,6 +108,8 @@ header {
             @include make-col-ready();
             @include make-col(10);
             @include make-col-offset(1);
+            margin-left: 0px;
+            max-width: 100vw;
 
             @include media-breakpoint-up(md) {
               display:none;
@@ -133,7 +139,6 @@ header {
             appearance: none;
             background-color: $white;
             margin-top: 20px;
-            margin-right: -25px;
                   
             &:focus {
               outline: none;
