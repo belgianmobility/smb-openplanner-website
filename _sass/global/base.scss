@@ -22,6 +22,24 @@
     }
 }
 
+.post{
+    @include media-breakpoint-up(md) {
+        flex-direction: column;
+      }
+}
+
+pre{
+    @include media-breakpoint-down(sm) {
+        font-size: 6px;
+    }  
+}
+
+dd{
+    @include media-breakpoint-down(sm) {
+        max-width: 90vw;
+    }   
+}
+
 .col-sm-12{
     @include media-breakpoint-down(sm) {
         padding: 0;

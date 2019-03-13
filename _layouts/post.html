@@ -1,21 +1,25 @@
----
-layout: default
----
+<!DOCTYPE html>
+<html>
 
-<section id="specifications" class="titledsection alt-columns">
-  <div class="row">
-    <div class="section-title">
-      <h1 class="post-title" itemprop="name headline">{{ page.title }}</h1>
-      <p class="post-meta">
-        <time datetime="{{ page.date | date_to_xmlschema }}"
-          itemprop="datePublished">{{ page.date | date: "%b %-d, %Y" }}</time>{% if page.author %} •
-        <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span
-            itemprop="name">{{ page.author }}</span></span>{% endif %}</p>
+{% include head.html %}
+
+<body>
+  <div id="particles-js"></div>
+  {% include header.html %}
+  <div class="container-fluid">
+    <div class="row row-content">
+      <div class="title">
+        <h1 class="post-title" itemprop="name headline">{{ page.title }}</h1>
+        <p class="post-meta">
+          <time datetime="{{ page.date | date_to_xmlschema }}"
+            itemprop="datePublished">{{ page.date | date: "%b %-d, %Y" }}</time>{% if page.author %} •
+          <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span
+              itemprop="name">{{ page.author }}</span></span>{% endif %}</p>
+      </div>
     </div>
+    {{ content }}
   </div>
-  <div class="row">
-    <div>
-      {{content }}
-    </div>
-  </div>
-</section>
+  {% include footer.html %}
+</body>
+
+</html>
