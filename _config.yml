@@ -6,12 +6,16 @@
 # 'jekyll serve'. If you change this file, please restart the server process.
 
 # Site settings
-title: Open planner.Team
-email: your-email@domain.com
+title: OpenPlanner.Team
+email: pieter.colpaert@imec.be
 description: > # this means to ignore newlines until "baseurl:"
     Publishing better open transport data, enabling an ecosystem of open source route planners.
-baseurl: "/smb-openplanner-website" # the subpath of your site, e.g. /blog
-url: "https://nextmoov.github.io" # the base hostname & protocol for your site
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "https://openplanner.team/" # the base hostname & protocol for your site
+
+collections:
+        specs:
+                output: true
 
 # Build settings
 markdown: kramdown
