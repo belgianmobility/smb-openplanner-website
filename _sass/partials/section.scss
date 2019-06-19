@@ -1,0 +1,40 @@
+section {
+    margin-top:30px;
+
+    @include media-breakpoint-up(md) {
+        margin-top:40px;
+    }
+}
+
+.section-title {
+  position: relative;
+
+  @include media-breakpoint-down(sm) {
+    height: 90px;
+    margin-left: 30px;
+  }
+}
+
+.wrapper {
+    background-color: white;
+}
+
+.circle {
+    background-color: white;
+    height: 54px;
+    width: 54px;
+    border-radius: 50%;
+    display: inline-block;
+    mix-blend-mode: difference;
+    position: absolute;
+    left: -16px;
+    top: -3px;
+    pointer-events: none;
+
+    @include media-breakpoint-up(md) {
+      height: 74px;
+      width: 74px;
+      left: -36px;
+      top: -14px;
+    }
+}
