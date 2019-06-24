@@ -1,0 +1,38 @@
+#disclaimer{
+    .container{
+        position : relative;
+        display: block;
+        width: 100%;
+        padding: 0;
+        overflow: hidden;
+
+        .video{
+            padding: 0 0 0 0;
+            height: 100%;
+       
+            iframe{
+                left:0;
+                width:100vw;
+                height:100vh;
+            }
+        }
+    }
+
+    h3{
+        margin-bottom: 20px;
+        font-weight: 400;
+        font-size: 19px;
+        text-decoration: underline;
+
+        @include media-breakpoint-up(md) {
+            margin-bottom: 25px;
+            margin-top: 30px;
+            font-size: 28px;
+          }
+    }
+
+    p{
+        font-weight: bold;
+        margin-bottom: 0px;
+    }
+}

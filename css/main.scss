@@ -3,9 +3,11 @@
 ---
 @charset "utf-8";
 
-
-
 // Import partials from `sass_dir` (defaults to `_sass`)
+// @import
+//   "smb-openplanner"
+// ;
+
 @import
-  "smb-openplanner"
+  "style"
 ;
