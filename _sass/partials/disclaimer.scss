@@ -5,6 +5,8 @@
         width: 100%;
         padding: 0;
         overflow: hidden;
+        margin-top: 15px;
+
 
         .video{
             padding:56.25% 0 0 0;
@@ -12,7 +14,6 @@
 
             iframe{
                 position:absolute;
-                top:0;
                 left:0;
                 width:100%;
                 height:100%;
@@ -22,7 +23,6 @@
 
     h3{
         margin-bottom: 20px;
-        margin-top: 15px;
         font-weight: 400;
         font-size: 19px;
         text-decoration: underline;
