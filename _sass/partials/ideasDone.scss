@@ -1,3 +1,7 @@
+.section-title{
+  margin-bottom : 100px;
+}
+
 .ideasContainer {
   width : 90%;
   display : flex;
@@ -12,15 +16,5 @@ border : 1px solid black;
 border-radius : 10px;
 padding : 10px 10px 0 10px;;
 margin-bottom : 25px;
-animation:shadow-drop-2-center .4s cubic-bezier(.25,.46,.45,.94) both;
-
 }
 
- @keyframes shadow-drop-2-center{
-   0%{
-     transform:translateZ(0);box-shadow:0 0 0 0 transparent;
-    }
-   100%{
-     transform:translateZ(50px);box-shadow:0 0 20px 0 rgba(0,0,0,.35);
-    }
-  }
