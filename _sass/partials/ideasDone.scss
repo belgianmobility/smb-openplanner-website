@@ -1,0 +1,21 @@
+.section-title{
+  margin-bottom : 100px;
+}
+
+.ideasContainer {
+  width : 90%;
+  display : flex;
+  flex-wrap: wrap;
+  margin-left : 5%;
+  justify-content: space-evenly;
+
+}
+.ideaItem {
+flex-basis: 30%;
+border : 1px solid black;
+border-radius : 10px;
+padding : 24px 24px 6px 24px;
+margin-bottom : 25px;
+background-color : white;
+}
+
