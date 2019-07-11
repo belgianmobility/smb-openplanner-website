@@ -1,0 +1,44 @@
+#osoc {
+
+  h5 {
+    span {
+      font-size: 20px;
+    }
+  }
+
+  .container {
+    padding-bottom: 20px;
+
+
+    img {
+      width: 100%;
+      padding-bottom: 20px;
+    }
+
+    p {
+      text-align: center;
+    }
+  }
+
+  .content {
+    padding: 0;
+
+    .row-content {
+      padding: 0;
+    }
+  }
+
+  .cta{
+    margin-bottom: 20px;
+    margin-top: 15px;
+    font-weight: 400;
+    font-size: 19px;
+    text-decoration: underline;
+    
+    @include media-breakpoint-up(md) {
+        margin-bottom: 25px;
+        margin-top: 30px;
+        font-size: 28px;
+      }
+}
+}
