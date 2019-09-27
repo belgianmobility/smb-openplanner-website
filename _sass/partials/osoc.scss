@@ -1,13 +1,14 @@
 #osoc {
 
   h5 {
+    margin-top : 50px;
     span {
       font-size: 20px;
     }
   }
 
   .container {
-    padding-bottom: 20px;
+    padding-bottom: 10px;
 
 
     img {
@@ -21,7 +22,7 @@
   }
 
   .content {
-    padding: 0;
+    padding-bottom: 40px;
 
     .row-content {
       padding: 0;
@@ -34,7 +35,7 @@
     font-weight: 400;
     font-size: 19px;
     text-decoration: underline;
-    
+
     @include media-breakpoint-up(md) {
         margin-bottom: 25px;
         margin-top: 30px;
